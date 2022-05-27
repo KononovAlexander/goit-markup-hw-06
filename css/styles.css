@@ -16,18 +16,6 @@ body {
     font-size: 14px;
 }
 
-@keyframes backdrop-animation {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity:.5;
-    } 
-    100% {
-        opacity: 1;
-    }
-}
-
 .header {
     border: 1px solid #ECECEC;
     padding-top: 32px;
@@ -40,11 +28,142 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     display: block;
+    padding: 40px;
     width: 528px;
     height: 581px;
     background: #ffffff;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
+}
+
+.modal-window p {
+    margin:0 0 30px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #212121;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+}
+
+.modal-form .main-btn {
+    padding-left: 55px;
+    padding-right: 55px;
+}
+
+.form-group {   
+    position: relative;
+}
+
+.form-group span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.01em;
+    
+}
+
+.form-icon {
+    position: absolute;
+    left: 12px;
+    top: 11px;
+    fill:currentColor;
+    color: var(--title-color);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form input {
+    margin-bottom: 28px;
+    padding-left: 42px;
+}
+
+.modal-form textarea {
+    margin-bottom: 20px;
+    resize: none;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.01em;
+    color: rgba(117, 117, 117, 0.5);
+}
+
+.modal-form input:not([type="checkbox"]),
+.modal-form textarea {
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.01em;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    background-color: inherit;
+    transition: outline-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline-color: var(--brand-color);
+}
+
+.form-group input:focus + .form-icon {
+    color: var(--brand-color);
+}
+
+.check-box-group {
+    display: flex;
+    margin-bottom: 30px;
+    align-items:center;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+}
+
+.check-box {
+    width: 16px;
+    height: 15px;
+    margin-right: 8px;
+    border: 2px solid var(--title-color);
+    border-radius:2px;
+    /* transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+}
+
+.check-box-group a{
+    color: var(--brand-color);
+}
+
+.modal-form button {
+    display: block;
+    margin: 0 auto;
+}
+
+.check-box-group > input[type="checkbox"]:checked + .check-box {
+   background-color: var(--brand-color);
+   border-color: transparent;
+   background-image: url(../images/check.svg);
+   background-size: contain;
+   background-origin: border-box;
+}
+
+.check-box-group > input[type="checkbox"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip:rect(0 0 0 0);
+    overflow: hidden;
 }
 
 .backdrop {
@@ -61,18 +180,42 @@ body {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-
-
 }
 
 .icon-wrap {
     position: absolute;
     right:8px;
     top: 8px;
-    display: inline-block;
-    padding: 9px 10px;
-    border-radius:50%;
+    display: flex;
+    height: 30px;
+    width: 30px;
+    justify-content: center;
+    align-items:center;
+    border-radius:50px;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-wrap svg {
+    fill: currentColor;
+}
+
+.icon-wrap:hover {
+    color: var(--brand-color);
+}
+
+.main-btn {
+    padding: 10px 30px;
+    background: #2196F3;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    border:none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 30px;
+    letter-spacing: 0.06em;
+    color: #FFFFFF;
     cursor: pointer;
 }
 
@@ -235,19 +378,6 @@ body {
     text-transform: uppercase;  
     line-height: 1.36;
     letter-spacing: 0.06em;
-}
-.hero-btn {
-    color: #ffffff;
-    background-color: var(--brand-color);
-    font-family: inherit;
-    padding: 10px 32px;
-    border-radius: 4px;
-    border:none;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.8;
-    letter-spacing: 0.06em;
-    cursor: pointer;
 }
 
 .skills h2,
@@ -641,6 +771,10 @@ margin: 0 0 50px;
     letter-spacing: 0.03em;
 }
 
+.socials {
+    margin-right: 70px;
+}
+
 .socials p {
 font-weight: 700;
 letter-spacing: 0.03em;
@@ -657,6 +791,47 @@ padding: 0;
 .socials .socials-item a:hover,
 .socials .socials-item a:focus {
     background-color: var(--brand-color);
+}
+
+.mailing {
+    padding: 0 20px;
+}
+
+.mailing-form p {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.mailing-form input {
+    width: 342px;
+    flex-basis: 60%;
+    padding: 15px;
+    margin-right: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    background-color: inherit;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.mailing-form button {
+    margin: 0;
+    vertical-align: middle;
+}
+
+.mailing-form svg {
+    fill:currentColor;
+    margin-left: 10px;
+    vertical-align: middle;
 }
 
 /*----------------------- icons-SVG-------------------- */

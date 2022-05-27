@@ -62,7 +62,7 @@
         <div class="container">
           <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
 
-          <button type="button" class="hero-btn" data-modal-open>
+          <button type="button" class="main-btn" data-modal-open>
             Заказать услугу
           </button>
         </div>
@@ -504,6 +504,18 @@
             </li>
           </ul>
         </div>
+        <div class="mailing">
+          <form action="" class="mailing-form">
+            <p>Подпишитесь на рассылку</p>
+            <input type="text" id="email" placeholder="E-mail" />
+            <button type="submit" class="main-btn">
+              Подписаться
+              <svg width="24" height="24">
+                <use href="./images/sprite.svg#icon-send"></use>
+              </svg>
+            </button>
+          </form>
+        </div>
       </div>
     </footer>
     <div class="backdrop is-hidden" data-modal>
@@ -513,6 +525,46 @@
             <use href="./images/sprite.svg#icon-close"></use>
           </svg>
         </div>
+        <p>Оставьте свои данные, мы вам перезвоним</p>
+        <form action="" class="modal-form">
+          <label class="form-group"
+            ><span> Имя </span>
+            <input type="text" name="user-name" />
+            <svg class="form-icon" width="18" height="18">
+              <use href="./images/sprite.svg#person"></use>
+            </svg>
+          </label>
+          <label class="form-group"
+            ><span> Телефон </span>
+            <input type="tel" name="tel" />
+            <svg class="form-icon" width="18" height="18">
+              <use href="./images/sprite.svg#phone"></use>
+            </svg>
+          </label>
+          <label class="form-group"
+            ><span> Почта </span>
+            <input type="email" name="email" />
+            <svg class="form-icon" width="18" height="18">
+              <use href="./images/sprite.svg#email"></use>
+            </svg>
+          </label>
+          <label class="form-group"
+            ><span> Комментарий </span>
+            <textarea
+              name="feedback"
+              placeholder="Введите текст"
+              id="comments"
+              rows="7"
+            ></textarea>
+          </label>
+          <label class="check-box-group">
+            <input type="checkbox" id="checkbox" name="agreement" />
+            <span class="check-box"> </span>
+            Соглашаюсь с рассылкой и принимаю
+            <a href="/">Условия договора</a>
+          </label>
+          <button type="submit" class="main-btn">Отправить</button>
+        </form>
       </div>
     </div>
     <script src="./js/modal.js"></script>
